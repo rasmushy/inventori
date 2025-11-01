@@ -1,0 +1,32 @@
+.app-header {
+  border-bottom: 1px solid var(--chakra-colors-border-muted);
+  background: var(--chakra-colors-bg);
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.site-footer {
+  border-top: 1px solid var(--chakra-colors-border-muted);
+  padding: 2rem 0;
+  margin-top: auto;
+  cursor: pointer;
+  
+  &:hover {
+    background: var(--chakra-colors-gray-50);
+  }
+}
