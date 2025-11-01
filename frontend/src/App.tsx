@@ -6,6 +6,7 @@ import { AuthProvider, useAuth } from './auth/AuthContext'
 import { AuthModal } from './components/AuthModal'
 import './styles/layout.scss'
 import './styles/components.scss'
+import UserPage from './pages/UserPage'
 
 function App() {
   const [authOpen, setAuthOpen] = useState(false)
@@ -33,14 +34,17 @@ function App() {
           </div>
         </header>
 
+        {/* Main content */}
         <Box as="main" flex="1" w="full">
           <div className="container">
             <Routes>
               <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="/user" element={<UserPage />} />
             </Routes>
           </div>
         </Box>
 
+        {/* Footer */}
         <footer className="site-footer">
           <div className="container">
             <Text fontSize="sm" color="fg.muted" textAlign="center">
