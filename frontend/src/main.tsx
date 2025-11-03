@@ -6,10 +6,12 @@ import { Toaster } from './components/ui/toaster'
 import App from './App.tsx'
 import './index.scss'
 
+const basename = import.meta.env.BASE_URL || '/'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider>
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <App />
         <Toaster />
       </BrowserRouter>
