@@ -37,7 +37,7 @@ jobs:
       - name: Set base URL for GitHub Pages
         id: set-base-url
         run: |
-          BASE_URL="/inventory/"
+          BASE_URL="/inventori/"
           echo "BASE_URL=${BASE_URL}" >> $GITHUB_OUTPUT
           echo "Building with base URL: ${BASE_URL}"
 
