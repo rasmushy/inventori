@@ -54,6 +54,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
     }, [])
 
+    // TODO: Remove this after backend is done, also check AuthForm.tsx for the buttons that use it
     const devLogin = useCallback(() => {
         if (!import.meta.env.DEV) return
         setUser({ id: 'demo', email: 'demo@example.com', displayName: 'Demo User' })

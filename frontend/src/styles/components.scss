@@ -1,5 +1,83 @@
 @use './_mixins' as *;
 
+.controls-row {
+  display: flex;
+  align-items: center;
+  column-gap: 0.75rem;
+  row-gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.mb-075 { margin-bottom: 0.75rem; }
+
+/* Item thumbnails */
+.thumb {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--bg-elev);
+  box-shadow: var(--shadow);
+}
+.thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+.thumb-lg { width: 128px; height: 128px; }
+.thumb-xl { width: 200px; height: 200px; }
+.thumb-placeholder { opacity: 0.7; font-size: 1.25rem; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+.column-rows-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+/* Mobile responsive grids */
+@include respond-md {
+  .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.5rem; }
+  .grid .thumb-xl { width: 140px; height: 140px; }
+  .column-rows-4 .thumb-lg { width: 100px; height: 100px; }
+  
+  .column-rows-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+}
+
+@include respond-sm {
+  .grid { grid-template-columns: 1fr; gap: 0.5rem; }
+  
+  .column-rows-4 {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+.card {
+  @include surface-card;
+  padding: 0.9rem;
+}
+
+.card:hover { box-shadow: 0 1px 2px rgba(17, 17, 17, 0.06), 0 10px 28px rgba(17, 17, 17, 0.10); }
+
+/* Re-introduce a very subtle texture only in image-card contexts */
+.grid .card,
+.column-rows-4 .card {
+  background-image: linear-gradient(0deg, rgba(250, 249, 247, 0.9), rgba(250, 249, 247, 0.9));
+  background-size: cover;
+  background-position: center;
+}
+
+.card-checkbox { position: absolute; top: 8px; left: 8px; }
+.card-btn { text-align: left; position: relative; }
+.caption { color: var(--text-muted); font-size: 0.9em; }
+
+/* Page containers */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -8,9 +86,11 @@
   transition: all 0.2s ease-in-out;
 }
 
+/* Responsive container padding moved to layout.scss */
 .section { padding: 0.5rem 0 2rem; }
 .section > h2 { margin: 0 0 0.75rem 0; }
 
+/* Generic modal styles */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -26,6 +106,7 @@
   max-height: 90vh;
   overflow: auto;
 }
+@include respond-sm { .modal { width: 96vw; } }
 
 .site-footer {
   min-height: 140px;

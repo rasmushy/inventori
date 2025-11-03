@@ -7,8 +7,9 @@ import {
     VStack,
     Text,
     Tabs,
-    Field
+    Field,
 } from '@chakra-ui/react'
+import { addTestData, createTestData } from '../utils/testData'
 
 interface AuthFormProps {
     onSuccess?: () => void
@@ -91,12 +92,39 @@ export function AuthForm({ onSuccess }: AuthFormProps) {
                     {devLogin && (
                         <Button
                             variant="outline"
+                            colorPalette="blue"
                             onClick={() => {
                                 devLogin()
                                 onSuccess?.()
                             }}
                         >
                             Dev Login (Skip Auth)
+                        </Button>
+                    )}
+                    
+                    {import.meta.env.DEV && (
+                        <Button
+                            variant="outline"
+                            colorPalette="green"
+                            onClick={() => {
+                                createTestData()
+                            }}
+                            disabled={loading}
+                        >
+                            Create Test Data (Clears existing data)
+                        </Button>
+                    )}
+
+                    {import.meta.env.DEV && (
+                        <Button
+                            variant="outline"
+                            colorPalette="green"
+                            onClick={() => {
+                                addTestData()
+                            }}
+                            disabled={loading}
+                        >
+                            Dev Item Test (Add more test data)
                         </Button>
                     )}
                 </VStack>

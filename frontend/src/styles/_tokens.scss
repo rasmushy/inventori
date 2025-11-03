@@ -1,3 +1,4 @@
+// SCSS Variables
 $color-bg: #f7f6f3;
 $color-bg-elev: #ffffff;
 $color-text: #2a2a2a;
@@ -13,3 +14,19 @@ $btn-bg: #ffffff;
 $btn-bg-hover: #faf9f6;
 $input-bg: #ffffff;
 $input-border: #dcd7ca;
+
+:root {
+  --bg: #{$color-bg};
+  --bg-elev: #{$color-bg-elev};
+  --text: #{$color-text};
+  --text-muted: #{$color-text-muted};
+  --border: #{$color-border};
+  --accent: #{$color-accent};
+  --accent-strong: #{$color-accent-strong};
+  --accent-soft: #{$color-accent-soft};
+  --shadow: #{$shadow};
+  --btn-bg: #{$btn-bg};
+  --btn-bg-hover: #{$btn-bg-hover};
+  --input-bg: #{$input-bg};
+  --input-border: #{$input-border};
+}

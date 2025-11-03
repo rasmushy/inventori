@@ -6,6 +6,7 @@ interface AuthModalProps {
   onClose: () => void
 }
 
+
 export function AuthModal({ open, onClose }: AuthModalProps) {
   return (
     <Dialog.Root open={open} onOpenChange={(e) => !e.open && onClose()}>
